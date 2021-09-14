@@ -5,8 +5,9 @@ using namespace std;
 using json = nlohmann::json;
 
 
-void createJson(Map<string> m, int flush_bits){
-    string keys = m.keys();
+void createJson(Map<string>& m, int flush_bits){
+    string keys;
+    keys = m.keys();
     json j;
     for(int i=0; i<m.size(); i++){
         string key = "";

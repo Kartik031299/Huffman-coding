@@ -1,5 +1,5 @@
 Map<string> m;
-Map<string> getHuffmanCodes(Node *root, string c)
+Map<string> &getHuffmanCodes(Node *root, string c)
 {
     if (root == NULL)
         return m;
@@ -14,19 +14,23 @@ Map<string> getHuffmanCodes(Node *root, string c)
         getHuffmanCodes(root->right, c + "1");
     return m;
 }
-void printHuffmanCodes(Map<string> codes, Map<int> m)
+void printHuffmanCodes(Map<string> &codes, Map<int> &m)
 {
     for (int i = 0; i < 42; i++)
         cout << "-";
-    cout<<endl;
-    cout << setw(7) << left << "| Key" << setw(15) << left << "| frequency" << setw(20) << left << "| code" << "|";
+    cout << "\n";
+    cout << setw(7) << left << "| Key" << setw(15) << left << "| frequency" << setw(20) << left << "| code"
+         << "|"
+         << "\n";
     string keys = codes.keys();
     for (int i = 0; i < codes.size(); i++)
     {
         string key = "";
         key += keys[i];
-        cout << setw(2) << left <<"| "<<setw(5)<<left<< key << setw(2) << left <<"| "<<setw(13)<<left<< m[key] <<setw(2)<<left<<"| "<<setw(18)<<left<< codes[key] << "|"<<endl;
+        cout << setw(2) << left << "| " << setw(5) << left << key << setw(2) << left << "| " << setw(13) << left << m[key] << setw(2) << left << "| " << setw(18) << left << codes[key] << "|"
+             << "\n";
     }
     for (int i = 0; i < 42; i++)
         cout << "-";
+
 }

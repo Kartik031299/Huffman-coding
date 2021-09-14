@@ -8,7 +8,8 @@ using namespace std;
 
 int main(){
     Map<int> m = create_map("text.txt");
-    Node* root=build_Huffman_Tree(m);
+    PriorityQueue* pq = new PriorityQueue(m);
+    Node* root=build_Huffman_Tree(pq, m);
     Map<string> codes = getHuffmanCodes(root,"");
     printHuffmanCodes(codes, m);
     string ans = encoded(codes, "text.txt");

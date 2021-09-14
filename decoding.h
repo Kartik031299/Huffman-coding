@@ -76,6 +76,7 @@ void getDecodedFile(string s, Map<string> m)
             string value = reverseMap.getValue(key);
             if (value == "*")
             {
+                cout<<ans<<"\n";
                 o << ans;
                 o <<"\n";
                 ans = "";

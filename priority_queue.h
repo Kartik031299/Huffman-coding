@@ -68,7 +68,7 @@ public:
         }
     }
 
-    PriorityQueue(Map<int> m)
+    PriorityQueue(Map<int>& m)
     {
         string key_list = m.keys();
         for (int i = 0; i < m.size(); i++)
@@ -80,17 +80,6 @@ public:
         }
     }
 
-    void f(Map<int> m)
-    {
-        string key_list = m.keys();
-        for (int i = 0; i < m.size(); i++)
-        {
-            string k = "";
-            k += key_list[i];
-            Node *p = new Node(k, m[k]);
-            this->insert(p);
-        } 
-    }
     Node* removeMin()
     {
         if (v.size() == 0)
@@ -136,10 +125,10 @@ public:
         return v.size();
     }
 };
-PriorityQueue* pq;
-Node* build_Huffman_Tree(Map<int> m)
+
+
+Node* build_Huffman_Tree(PriorityQueue* pq,const Map<int>& m)
 {
-    pq->f(m);
     while (pq->getSize() > 1)
     {
         Node *n1 = pq->removeMin();
@@ -149,6 +138,5 @@ Node* build_Huffman_Tree(Map<int> m)
         n3->right = n2;
         pq->insert(n3);
     }
-    //cout<<"h";
-    return pq->removeMin();
+    return (pq->removeMin());
 }

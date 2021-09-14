@@ -1,4 +1,4 @@
-string encoded(Map<string> codes, string filename)
+string encoded(Map<string>& codes, string filename)
 {
     string ans = "";
     ifstream fin;
@@ -24,6 +24,7 @@ string encoded(Map<string> codes, string filename)
 
 int current_bit = 0;
 unsigned char bit_buffer;
+FILE *f;
 void WriteBit(int bit)
 {
     if (bit)
